@@ -2,16 +2,10 @@ import React from 'react';
 
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
-import * as schools from './data/export.json';
 
-export default function MapTile(){
-    const [activePark, setActivePark] = React.useState(null);
-    // let Polygon = schools.features.filter(
-    //   (school) => school.geometry.type === 'Polygon' && school.properties.name
-    // );
-    let Point = schools.features.filter(
-      (school) => school.geometry.type === 'Point' && school.properties.name
-    );
+
+export default function MapTile({Point, activePark, setActivePark}){
+ 
     return (
         <Map center={[27.7120406, 85.2878096]} zoom={16}>
           <TileLayer
@@ -28,6 +22,7 @@ export default function MapTile(){
               ]}
               onClick={() => {
                 setActivePark(point);
+               
               }}
             />
           ))}
@@ -45,13 +40,13 @@ export default function MapTile(){
               }}
             >
               <div>
-                <h3> {activePark.properties.name}</h3>
+                <h3>{activePark.properties.name}</h3>
 
                 <p> {activePark.properties.operator}</p>
               </div>
             </Popup>
           
-         
+      
           )}
         </Map>
     )
