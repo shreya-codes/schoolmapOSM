@@ -1,19 +1,19 @@
 import React from 'react';
-
+import Search from "react-leaflet-search";
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 
 
 
-export default function MapTile({Point, activePark, setActivePark}){
- 
+export default function MapTile({Polygon,Point, activePark, setActivePark,term,setTerm}){
+ console.log(term)
     return (
-        <Map center={[27.7120406, 85.2878096]} zoom={16}>
+        <Map center={[ 27.6801026, 85.34741]} zoom={15}>
           <TileLayer
             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           />
 
-          {Point.map((point) => (
+           {Point.map((point) => (
             <Marker
               key={point.id}
               position={[
@@ -25,9 +25,16 @@ export default function MapTile({Point, activePark, setActivePark}){
                
               }}
             />
-          ))}
+          ))} 
+          <Search
+          position="topleft"
+          inputPlaceholder="Search School"
+          zoom={18}
+          closeResultsOnClick={true}
+          />
         
-          {activePark && (
+        
+          {activePark && activePark.geometry.type==="Point" && (
               
             <Popup
               position={[
@@ -48,6 +55,7 @@ export default function MapTile({Point, activePark, setActivePark}){
           
       
           )}
+           
         </Map>
     )
   

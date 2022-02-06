@@ -1,26 +1,43 @@
 import React from 'react';
+import Logo from './image/logo.png'
 
-export default function dashboard({Point, activePark, setActivePark}){
+import SearchBar from './SearchBar.js'
+
+export default function dashboard({activePark,setActivePark,Point}){
     
-    if(activePark){
-        console.log(activePark)
-    }
-  
+ 
     return (
         <div className='dashboard'>
-        <div className='search'>
-          <input type='text' placeholder='Search a school'></input>
-          <i className='fas fa-search'></i>
-        </div>
+            <img className='logo' src={Logo} alt="Logo" />
+           <SearchBar 
+           activePark={activePark}
+           setActivePark={setActivePark}
+           Point={Point} 
+           />
         <div className='content'>
 
         {activePark && (
           <div>
-            <li>{activePark.properties.name}</li>
-            <li>{activePark.properties.operator}</li>
-            <li>{activePark.properties.phone}</li>
-            <li>{activePark.properties.physical_condition}</li>
-          </div>
+            <li><h2>{activePark.properties.name}</h2></li>
+            {activePark.properties.operator && (
+              <li>Operator : {activePark.properties.operator}</li>
+            )}
+            {activePark.properties.phone && (
+              <li>Contact no :{activePark.properties.phone}</li>
+            )}
+            {activePark.properties.physical_condition && (
+              <li>Physical Conndition :{activePark.properties.physical_condition}</li>
+            )}
+            {activePark.properties.studentcount && (
+              <li>Student Count : {activePark.properties.studentcount}</li>
+            )}
+            {activePark.properties.personnelcount && (
+              <li>Personnel Count : {activePark.properties.personnelcount}</li>
+            )}
+            {activePark.properties.iscedlevel && (
+              <li>Education Level : {activePark.properties.iscedlevel}</li>
+            )}
+            </div>
           
         )}
 
