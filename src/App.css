@@ -16,7 +16,7 @@ font-family: 'Source Code Pro', monospace;
   float: left;
   height: 100vh;
   width: 30%;
-  background-color: #f8f8fa
+  background-color: #f8f8fa;
 }
 .container {
   height: 600px;
@@ -36,37 +36,41 @@ font-family: 'Source Code Pro', monospace;
 }
 
 .fa-search {
-  width: 10%;
+ text-align: center;
+ width: 100%;
+ padding-right: 5px;
   height: 100%;
   color: #023246;
   float: right;
-  margin: 5px;
+
   
 }
 .search {
   background-color: #ffff;
   width: 80%;
-  height: 2em;
+  height: 2.5em;
   margin: auto;
   border-bottom: 5px solid #023246;
   box-shadow: #023246;
   border-radius: 10px;
-  padding-top: 1%;
-  margin-top: 17%;
+  margin-top: 5%;
 }
 input {
   height: 90%;
-  width: 80%;
+  width: 70%;
   border: none;
   margin-left: 5%;
+  margin-bottom: 1px;
 }
 input:focus-visible {
   outline: none;
 }
 .content {
+  display: flex;
   color: #022873;
   margin-left: 50px;
-  margin-top: 50px;
+  margin-top: 80px;
+  overflow-wrap: break-word;
 }
 li {
   list-style: none;
@@ -81,4 +85,21 @@ li {
   margin-right: auto;
   margin-top: 25px;
 
+}
+.schoolItem{
+cursor: pointer
+;  background-color:#ffffff;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border: none;
+  color: #022873;
+  font-size: large;
+}
+.searchButton{
+  width: 20%;
+  background-color: #f8f8fa;
+ padding: 5px;
+}
+.schoolList{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 3px; 
 }

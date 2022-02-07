@@ -1,18 +1,17 @@
-import React from 'react';
+import React,{useContext} from 'react';
+
 import Logo from './image/logo.png'
-
 import SearchBar from './SearchBar.js'
+import dataContext from './globalContext';
 
-export default function dashboard({activePark,setActivePark,Point}){
-    
- 
+export default function Dashboard({Point}){
+  const {activePark} = useContext(dataContext);
     return (
         <div className='dashboard'>
             <img className='logo' src={Logo} alt="Logo" />
            <SearchBar 
-           activePark={activePark}
-           setActivePark={setActivePark}
-           Point={Point} 
+           
+           Point={Point}   
            />
         <div className='content'>
 
